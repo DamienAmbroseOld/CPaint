@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>CPaint</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="CPaint_alt.png" rel="icon">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fdc41ad447.js" crossorigin="anonymous"></script>
+  <!-- Template Main CSS File -->
+  <link href="assets/style.css" rel="stylesheet">
+
+  <!-- AOS library files-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <!--Color picker-->
+<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+
+<body style="background-color: rgba(48,50,68,255);height: 100%;user-select: none;" onload="showpick()">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center  header-transparent " style="background-color: #292c39;">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="index.html"><i class="fas fa-copyright"></i>PAINT</a></h1>
+      </div>
+
+
+    </div>
+  </header><!-- End Header -->
+  <noscript>
+    Your browser does not support JavaScript!
+ </noscript>
+ <canvas id="myCanvas" style="margin-top:90px;margin-left:15px;background: white;" height="510px" width= "850px">
+</canvas>
+
+
+<div style="background-color: rgba(98,100,118,255);height: 100%;width: 35%;float:right;padding:10px">
+  <br><br><br><div style="visibility: hidden;position: relative;top:-40px;;"><div style="float: right;"><input class="color-picker"></div></div>
+  <br><br><br><br><br><br><br><br><br><br><br>
+<div class="middle">
+  <div class="slider-container">
+    <span class="bar"><span class="fill"></span></span>
+    <input type="range" min="1" max="200" value="1" id="slider" class="slider">
+    <h5 style="position: absolute;top:0;left:380px" id="h5_out">1</h5>
+  </div>
+  </div>
+  <br>
+
+  <div class="float-container" style="height: 35%;">
+    <div class="save" style="margin-left: 5px;">
+
+      <nav>
+      <div class="dropdown">
+        <h5 style="color:#303244;">Save as...</h5>
+        <button class="dropbtn" style="font-family: poppins;"><a id="download" download="My art.png" href="" onclick="download_img(this);" style="color:white;">PNG</a></button><br>
+        <button class="dropbtn" style="font-family: poppins;"><a id="download" download="My art.jpeg" href="" onclick="download_img_jpeg(this);" style="color:white;">JPEG</a></button><br>
+        <button class="dropbtn" style="font-family: poppins;"><a id="download" download="My art.bmp" href="" onclick="download_img_bmp(this);" style="color:white;">BMP</a></button><br>
+      </div>
+      </nav>
+      </div>
+    <div class="save">
+
+      <nav>
+      <div class="dropdown">
+        <h5 style="color:#303244;">Tool kit...</h5>
+        <button class="dropbtn" style="font-family: poppins;"><a href="editor.html" style="color:white">New</a></button><br>
+        <button class="dropbtn" style="font-family: poppins;" onclick="fill()">Fill</button><br>
+        <button class="dropbtn" style="font-family: poppins;" onclick="clearArea()">Clear</button><br>
+      </div>
+      </nav>
+      </div>
+
+
+</div>
+<style>
+.middle {
+  background-color: white;
+  padding: 15px;
+  border-radius: 2px;
+}
+.slider-container {
+  width:82%;
+  position: relative;
+}
+.slider-container .slider {
+  position: relative;
+  z-index: 2;
+  width:100%;
+  height: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 75px;
+  outline: none;
+  background: transparent;
+}
+.slider-container .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width:20px;
+  height: 20px;
+  background: #292c39;
+  border-radius: 100%;
+cursor: pointer;
+outline: none;
+box-shadow: 0 0 0 0 #292c39;
+transition: .3s ease-in-out;
+
+}
+
+.slider-container .slider::-webkit-slider-thumb:hover {
+
+box-shadow: 0 0 0 10px #292c3944;
+}
+.slider-container .slider:active:-webkit-slider-thumb {
+box-shadow: 0 0 0 18px #292c395d;
+}
+.slider-container .bar {
+position: absolute;
+z-index: 1;
+left:0;
+top:7px;
+background:#292c397a;
+width:100%;
+height: 10px;
+border-radius: 75px;
+overflow: hidden;
+}
+.slider-container .bar .fill {
+display: block;
+height: 100%;
+width: 0;
+background-color:#292c39c0;
+border-radius: inherit;
+}
+.import {
+  height:90%;
+  background: white;
+  border-radius: 2px;
+  width: 49%;
+    float: left;
+    padding: 20px;
+}
+.save {
+  height:90%;
+  background: white;
+  width: 49%;
+    float: right;
+    padding: 20px;
+    border-radius: 2px;
+}
+#drop-region {
+	width:180px;
+	text-align: center;
+	cursor:pointer;
+	transition:.3s;
+}
+
+
+#image-preview {
+	margin-top:20px;
+}
+#image-preview .image-view {
+    display: inline-block;
+	position:relative;
+	margin-right: 13px;
+	margin-bottom: 13px;
+}
+#image-preview .image-view img {
+    max-width: 100px;
+    max-height: 100px;
+}
+#image-preview .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    background: rgba(255,255,255,0.5);
+}
+.dropbtn {
+  background: #303244;
+  color:white;
+  border-radius: 2px;
+  border-width: 0px;
+  width:100%;
+  padding: 5px 0px;
+  transition-duration: 0.15s;
+  margin-top:5px;
+}
+.dropbtn:hover {
+  background: #21232e;
+}
+.dropbtn:active {
+  background: #171920;
+}
+html,body {
+  overflow: hidden;
+}
+canvas {
+  cursor:crosshair;
+}
+
+</style>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up" style="font-size: large;"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script>
+  const pickr = Pickr.create({
+    el: '.color-picker',
+    theme: 'classic', // or 'monolith', or 'nano'
+    default:'rgba(244, 67, 54, 1)',
+
+    swatches: [
+        'rgba(244, 67, 54, 1)',
+        'rgba(233, 30, 99, 0.95)',
+        'rgba(156, 39, 176, 0.9)',
+        'rgba(103, 58, 183, 0.85)',
+        'rgba(63, 81, 181, 0.8)',
+        'rgba(33, 150, 243, 0.75)',
+        'rgba(3, 169, 244, 0.7)',
+        'rgba(0, 188, 212, 0.7)',
+        'rgba(0, 150, 136, 0.75)',
+        'rgba(76, 175, 80, 0.8)',
+        'rgba(139, 195, 74, 0.85)',
+        'rgba(205, 220, 57, 0.9)',
+        'rgba(255, 235, 59, 0.95)',
+        'rgba(255, 193, 7, 1)'
+    ],
+
+    components: {
+
+        // Main components
+        preview: false,
+        opacity: true,
+        hue: true,
+
+        // Input / output Options
+        interaction: {
+            hex: true,
+            rgba: true,
+            hsla: false,
+            hsva: false,
+            cmyk: false,
+            input: true,
+            clear: false,
+            save: false
+        }
+    }
+});
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
+</body>
+<script>
+  pickr.on('init', instance => {
+    pickr.show()
+}).on('hide', instance => {
+  pickr.show()
+})
+function showpick() {
+  pickr.show()
+}
+
+
+ var $slider = $("#slider");
+ var $fill = $(".bar .fill");
+var slider_value = 1;
+function setBar() {
+  $fill.css("width", $slider.val()/2 + "%");
+  slider_value = document.getElementById("slider").value;
+  document.getElementById("h5_out").innerHTML = slider_value;
+}
+$slider.on("input", setBar);
+
+setBar();
+
+
+
+
+var mouseEvent = "empty";
+var last_position_of_x, last_position_of_y;
+
+    canvas = document.getElementById('myCanvas');
+    ctx = canvas.getContext("2d");
+    
+
+pickr.on('change', (color, source, instance) => {
+    RGBAcolor = color.toRGBA().toString(0);
+})
+
+    RGBAcolor = "rgba(244, 67, 54, 1)";
+    width_of_line = 1;
+    canvas.addEventListener("mousedown", my_mousedown);
+    function my_mousedown(e)
+    {
+
+        mouseEvent = "mouseDown";
+    }
+
+    canvas.addEventListener("mousemove", my_mousemove);
+    function my_mousemove(e)
+    {
+        current_position_of_mouse_x = e.clientX - canvas.offsetLeft;
+        current_position_of_mouse_y = e.clientY - canvas.offsetTop;
+
+        if (mouseEvent == "mouseDown") {
+        ctx.beginPath();
+        ctx.strokeStyle = RGBAcolor;
+        ctx.lineWidth = document.getElementById("slider").value;
+ctx.lineCap = "round";
+        console.log("Last position of x and y coordinates = ");
+        console.log("x = " + last_position_of_x + "y = " + last_position_of_y);
+        ctx.moveTo(last_position_of_x, last_position_of_y);
+
+        console.log("Current position of x and y coordinates = ");
+        console.log("x  = " + current_position_of_mouse_x + "y = " + current_position_of_mouse_y);
+        ctx.lineTo(current_position_of_mouse_x, current_position_of_mouse_y);
+        ctx.stroke();
+        }
+
+        last_position_of_x = current_position_of_mouse_x; 
+        last_position_of_y = current_position_of_mouse_y;
+    }
+
+    canvas.addEventListener("mouseup", my_mouseup);
+    function my_mouseup(e)
+    {
+        mouseEvent = "mouseUP";
+    }
+
+    canvas.addEventListener("mouseleave", my_mouseleave);
+    function my_mouseleave(e)
+    {
+        mouseEvent = "mouseleave";
+    }
+
+
+//Additional Activity
+function clearArea() {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+}
+
+function fill() {
+  ctx.fillStyle = RGBAcolor;
+    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+}
+
+download_img = function(el) {
+  var image = canvas.toDataURL("image/png");
+  el.href = image;
+};
+
+download_img_jpeg = function(el) {
+  var image = canvas.toDataURL("image/jpeg");
+  el.href = image;
+};
+
+download_img_bmp = function(el) {
+  var image = canvas.toDataURL("image/bmp");
+  el.href = image;
+};
+</script>
+</html>
