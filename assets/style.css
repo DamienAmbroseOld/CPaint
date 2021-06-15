@@ -411,7 +411,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 80vh;
   }
   #hero h2 {
-    font-size:35px;
+    font-size:38px;
   }
 }
 @media (max-width: 488px) {
@@ -769,20 +769,16 @@ section {
   box-shadow: 0 2px 35px 0 rgba(68, 88, 144, 0.2);
 }
 
-.services .icon {
-  position: absolute;
-  left: -20px;
-  top: calc(50% - 30px);
-}
+
 
 .services .icon i {
-  font-size: 64px;
+  font-size: 54px;
   line-height: 1;
   transition: 0.5s;
 }
 
 .services .title {
-  margin-left: 40px;
+  margin-left: 60px;
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
@@ -799,7 +795,7 @@ section {
 
 .services .description {
   font-size: 14px;
-  margin-left: 40px;
+  margin-left: 60px;
   line-height: 24px;
   margin-bottom: 0;
 }
