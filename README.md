@@ -29,5 +29,5 @@
 </ul>
 <h1>Feature set</h1>
 <p>You can tweak your brush with opacity, hue, colors, width and more! You can even upload an image and customise that one. You can also export it to 3 different file formats just in the push of a button.</p>
-<blockquote>This project might continue to get important security- and bug-related updates but its feature set is frozen, and it's highly unlikely that it'll get new features or enhancements.</blockquote>
+<blockquote>This project might continue to get important security- and bug-related updates but its feature set is <i>frozen</i>, and it's highly unlikely that it'll get new features or enhancements.</blockquote>
 <hr>
