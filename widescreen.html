@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>CPaint</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="CPaint_alt.png" rel="icon">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fdc41ad447.js" crossorigin="anonymous"></script>
+  <!-- Template Main CSS File -->
+  <link href="assets/style.css" rel="stylesheet">
+
+  <!-- AOS library files-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <!--Color picker-->
+<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+
+
+</head>
+<body style="background-color: rgba(48,50,68,255);height: 100%;user-select: none;text-align:center;font-family: sans-serif;"id="content_body" onload="showpick()" onresize="showpick()">
+    <header id="header" class="fixed-top d-flex align-items-center  header-transparent " style="background-color: #292c39;">
+        <div class="container d-flex align-items-center justify-content-between">
+    
+          <div class="logo">
+            <h1><a href="index.html" style="font-family: poppins;"><i class="fas fa-copyright"></i>PAINT</a></h1>
+          </div>
+    
+    
+        </div>
+      </header><!-- End Header -->
+      <br><br><br><br><br><br>
+      <i class="fas fa-tv fa-10x" style="color:white;text-shadow: 0px 0px 9px rgb(0, 0, 0);"></i>
+      <br><br>
+      <h3 style="color:white;text-shadow: 0px 0px 9px rgb(0, 0, 0);font-family: poppins">Your device may be too large</h5>
+      <h6 style="color:white;text-shadow: 0px 0px 9px rgb(0, 0, 0);font-family: poppins;">Please use a smaller one</h6>
+</body>
+<script>
+    function showpick() {
+
+   
+
+function isIE() {
+ua = navigator.userAgent;
+
+var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+
+return is_ie; 
+}
+
+if (isIE()){
+window.location.replace('ie.html');
+}
+
+
+if (window.innerWidth == 1326) {
+{
+  window.location.replace('opera.html');
+}
+} else if (window.innerWidth < 1366) {
+
+
+  if (window.innerWidth > window.innerHeight) {
+    window.location.replace('mobile.html');
+  } else if (window.innerWidth < window.innerHeight) {
+    window.location.replace('editor.html');
+  }
+  
+
+} else if (window.innerWidth == 1366) {
+
+    window.location.replace('editor.html');
+  
+  }
+}
+ 
+
+
+</script>
+</html>

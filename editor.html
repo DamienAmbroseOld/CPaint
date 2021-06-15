@@ -1,0 +1,1092 @@
+
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>CPaint</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  
+  <!-- Favicons -->
+  <link href="CPaint_alt.png" rel="icon">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fdc41ad447.js" crossorigin="anonymous"></script>
+  <!-- Main CSS File -->
+  <link href="assets/style.css" rel="stylesheet">
+  
+
+  <!-- AOS library files-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <!--Color picker-->
+<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+
+
+</head>
+<body style="background-color: rgba(48,50,68,255);height: 100%;user-select: none;outline: none;" onload="showpick()" onresize="showpick()" id="content_body">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center  header-transparent " style="background-color: #292c39;">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="index.html" style="font-family: poppins;"><i class="fas fa-copyright"></i>PAINT</a></h1>
+      </div>
+
+
+    </div>
+  </header><!-- End Header -->
+
+<div style="height:100%;display:none" id="desktop_user">
+ <canvas id="myCanvas" style="margin-top:90px;margin-left:15px;background: white;" height="510px" width= "850px" oncontextmenu="pick()">
+</canvas>
+<ul style="display: none;" id="ctxMenuRepl">
+  <li></li>
+</ul>
+
+<div style="background-color: rgba(98,100,118,255);height: 100%;width: 35%;float:right;padding:10px">
+  <br><br><br><div style="visibility: hidden;position: relative;top:-40px;"><div style="float: right;"><input class="color-picker"></div></div>
+  <br><br><br><br><br><br><br><br><br><br><br>
+<div class="middle">
+  <div class="slider-container">
+    <span class="bar"><span class="fill"></span></span>
+    <input type="range" min="1" max="200" value="1" id="slider" class="slider" style="font-family:Raleway">
+    <input type="number" min="1" max="200" oninput="h5change()" style="outline:none;position: absolute;top:0;left:380px;font-weight: 600;border-width:0px;width:50px;font-family:Raleway;color:rgba(0, 0, 0, 0.836)" id="h5_out" value="1">
+  </div>
+  </div>
+  <br>
+
+  <div class="float-container" style="height: 35%;">
+    <div class="save" style="margin-left: 5px;">
+
+      <nav>
+      <div class="dropdown">
+        <h5 style="color:#303244;width:100%;text-align: center;font-weight: 600;">Save</h5>
+        <button class="dropbtn" style="font-family: poppins;"><a id="download" download="My art.png" href="" onclick="download_img(this);" style="color:white;">PNG</a></button><br>
+        <button class="dropbtn" style="font-family: poppins;"><a id="download" download="My art.jpeg" href="" onclick="download_img_jpeg(this);" style="color:white;">JPEG</a></button><br>
+        <button class="dropbtn" style="font-family: poppins;"><a id="download" download="My art.bmp" href="" onclick="download_img_bmp(this);" style="color:white;">BMP</a></button><br>
+      </div>
+      </nav>
+      </div>
+    <div class="save">
+
+      <nav>
+      <div class="dropdown">
+        <h5 style="color:#303244;width:100%;text-align: center;font-weight: 600;">Tool kit</h5>
+        <div >
+          <button class="dropbtn" style="font-family: poppins;width:45%;" title="Create a new workspace"><a href="editor.html" style="color:white" target="_blank"><i class="fas fa-plus-circle fa-xs"></i>&nbsp;New</a></button>
+        <button class="dropbtn" style="font-family: poppins;width:45%;" onclick="splash()" title="Fill the canvas"><i class="fas fa-fill-drip fa-xs"></i>&nbsp;Fill</button><br>
+        <button class="dropbtn" style="font-family: poppins;width:45%;" onclick="clearArea()" title="Clear the canvas"><i class="fas fa-chalkboard fa-xs"></i>&nbsp;Clear</button>
+        <button class="dropbtn" style="font-family: poppins;width:45%;" onclick="reset()" title="Reset all settings"><i class="fas fa-undo-alt fa-xs"></i>&nbsp;Reset</button><br>   
+        
+        <div class="upload" style="font-family: poppins;text-align: center;cursor: pointer;" title="Upload an image">
+          <i class="fas fa-cloud-upload-alt"></i>&nbsp;
+          Upload
+          <input type="file" name="upload" id="imageInput" />
+      </div>
+      
+      </div>
+      </div>
+      </nav>
+      </div>
+
+</div>
+
+</div>
+</div><div class="shadow" id="shadow" style="display:none;"></div>
+
+<div style="height:100%;display:none;" id="mobile_user">
+
+  <br><br><br><canvas id="mobile_canvas" style="background-color: white"></canvas>
+
+
+
+
+<span><button class="bubbly-button" onclick="clearArea()">CLEAR</button></span><span><button class="bubbly-button " data-toggle="modal" data-target="#myModal" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"> COLOR <i class="fas fa-square" id="in_col"></i></button></span>
+<br>
+<span><button class="bubbly-button"><a href="editor.html" target="_blank" style="color: white;">NEW</a></button></span><span><button class="bubbly-button" onclick="fill_mob()">FILL</button></span>
+<br>
+<span><button class="bubbly-button" onclick="reset()">RESET</button></span><span><button class="bubbly-button" download="My_Art.png" href="" onclick="mob_download_img(this);">DOWNLOAD</button></span>
+<br><br>
+<div class="middle" style="width:92%;margin-left:4%">
+  <div class="slider-container">
+    <span class="bare" style="width: 120%;"><span class="full"></span></span>
+    <input type="range" min="1" max="200" value="1" id="slider2" class="slider" style="font-family:Raleway;width: 120%;">
+    
+  </div>
+
+  </div>
+
+  
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Select color</h5>
+        <button type="button" onclick="stop_change()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div id="picker" style="display: block; margin-left: auto; margin-right: auto;"></div>
+        <div style="width:300px;margin:auto"><div id="outputmob" style="float:left;width:80px;height:80px;background-color: rgba(244, 67, 54, 1);border-radius: 100%"></div><h3 style="float:right;margin-top:30px" id="outputcol">rgba(244, 67, 54, 1)</h3></div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="stop_change()">Cancel</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="save_color()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="loader" style="position: absolute; top: 30%; left: 50%;">Loading...</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+  body{
+  font-size: 16px;
+  text-align: center;
+}
+.bubbly-button{
+  height:65px;
+  width:150px;
+  border-width:0px;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #292c39;
+  color:white;
+  box-shadow: 0 0 2px #292c39;
+  margin:5px;
+  transition-duration: 0.1s;
+  font-family: poppins;
+  width:45%;
+}
+.bubbly-button:active{
+  height:40px;
+  width:145px;
+}
+
+
+.bubbly-button2{
+  height:45px;
+  width:45px;
+  border-width:0px;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #292c39;
+  color:white;
+  box-shadow: 0 0 2px #292c39;
+  margin:5px;
+  transition-duration: 0.1s;
+  font-family: poppins;
+  width: 13%;
+}
+.bubbly-button2:active{
+  height:40px;
+  width:40px;
+}
+@media only screen and (min-width: 645px) {
+  .bubbly-button{
+  height:105px;
+  width:150px;
+  border-width:0px;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #292c39;
+  color:white;
+  box-shadow: 0 0 2px #292c39;
+  margin:5px;
+  transition-duration: 0.1s;
+  font-family: poppins;
+  width:45%;
+  font-size:30px;
+}
+.bubbly-button:active{
+  height:95px;
+  width:35%;
+}
+.bubbly-button2{
+  height:105px;
+  width:110px;
+  border-width:0px;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #292c39;
+  color:white;
+  box-shadow: 0 0 2px #292c39;
+  margin-left:5px;
+  transition-duration: 0.1s;
+  font-family: poppins;
+  font-size:30px;
+}
+.bubbly-button2:active{
+  height:90px;
+  width:90px;
+}
+}
+.shadow {
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+  height:231px;
+  width:456px;
+  position: absolute;
+  top:83px;
+  left:900px;
+}
+.middle {
+  background-color: white;
+  padding: 15px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  width:99%;
+  margin-left:1%;
+}
+.slider-container {
+  width:82%;
+  position: relative;
+}
+.slider-container .slider {
+  position: relative;
+  z-index: 2;
+  width:100%;
+  height: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 75px;
+  outline: none;
+  background: transparent;
+}
+
+.slider-container .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width:20px;
+  height: 20px;
+  background: #292c39;
+  border-radius: 100%;
+cursor: pointer;
+outline: none;
+box-shadow: 0 0 0 0 #292c39;
+transition: .3s ease-in-out;
+
+}
+.slider-container .slider::-moz-range-thumb {
+  -moz-appearance: none;
+  width:20px;
+  height: 20px;
+  background: #292c39;
+  border-radius: 100%;
+cursor: pointer;
+outline: none;
+box-shadow: 0 0 0 0 #292c39;
+transition: .3s ease-in-out;
+}
+.slider-container .slider::-webkit-slider-thumb:hover {
+
+box-shadow: 0 0 0 10px #292c3944;
+}
+.slider-container .slider::-moz-range-thumb:hover {
+
+box-shadow: 0 0 0 10px #292c3944;
+}
+.slider-container .slider:active:-webkit-slider-thumb {
+box-shadow: 0 0 0 18px #292c395d;
+}
+.slider-container .slider:active:-moz-range-thumb {
+box-shadow: 0 0 0 18px #292c395d;
+}
+.slider-container .bar {
+position: absolute;
+z-index: 1;
+left:0;
+top:7px;
+background:#292c397a;
+width:100%;
+height: 10px;
+border-radius: 75px;
+overflow: hidden;
+}
+.bare {
+  position: absolute;
+z-index: 1;
+left:0;
+top:7px;
+background:#292c397a;
+width:100%;
+height: 10px;
+border-radius: 75px;
+overflow: hidden;
+}
+.slider-container .bar .fill {
+display: block;
+height: 100%;
+width: 0;
+background-color:#292c39c0;
+border-radius: inherit;
+}
+.full {
+  display: block;
+height: 100%;
+width: 0;
+background-color:#292c39c0;
+border-radius: inherit;
+}
+@media only screen and (min-width: 645px) {
+
+.slider-container .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width:40px;
+  height: 40px;
+  background: #292c39;
+  border-radius: 100%;
+cursor: pointer;
+outline: none;
+box-shadow: 0 0 0 0 #292c39;
+transition: .3s ease-in-out;
+position: relative;
+top:5px;
+}
+.slider-container .slider::-moz-range-thumb {
+  -moz-appearance: none;
+  width:40px;
+  height: 40px;
+  background: #292c39;
+  border-radius: 100%;
+cursor: pointer;
+outline: none;
+box-shadow: 0 0 0 0 #292c39;
+transition: .3s ease-in-out;
+position: relative;
+top:5px;
+}
+
+.middle {
+  height: 100px;
+  padding: 35px 30px 35px 30px;
+}
+.bare {
+  position: absolute;
+z-index: 1;
+left:0;
+top:7px;
+background:#292c397a;
+width:100%;
+height: 20px;
+border-radius: 75px;
+overflow: hidden;
+}
+#exampleModalLabel {
+  font-size:40px;
+}
+.btn-secondary {
+  font-size:30px;
+}
+.btn-primary {
+  font-size:30px;
+}
+}
+@media only screen and (min-width: 1024px) {
+
+.slider-container .slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+-moz-appearance: none;
+width:20px;
+height: 20px;
+background: #292c39;
+border-radius: 100%;
+cursor: pointer;
+outline: none;
+box-shadow: 0 0 0 0 #292c39;
+transition: .3s ease-in-out;
+position: relative;
+top:0px;
+}
+.slider-container .slider::-moz-range-thumb {
+  -moz-appearance: none;
+  width:20px;
+  height: 20px;
+  background: #292c39;
+  border-radius: 100%;
+cursor: pointer;
+outline: none;
+box-shadow: 0 0 0 0 #292c39;
+transition: .3s ease-in-out;
+position: relative;
+top:5px;
+}
+.middle {
+height: auto;
+padding: 15px;
+}
+}
+.import {
+  height:90%;
+  background: white;
+  border-radius: 2px;
+  width: 49%;
+    float: left;
+    padding: 20px;
+}
+.save {
+  height:195px;
+  background: white;
+  width: 49%;
+    float: right;
+    padding: 20px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+#drop-region {
+	width:180px;
+	text-align: center;
+	cursor:pointer;
+	transition:.3s;
+}
+
+
+#image-preview {
+	margin-top:20px;
+}
+#image-preview .image-view {
+    display: inline-block;
+	position:relative;
+	margin-right: 13px;
+	margin-bottom: 13px;
+}
+#image-preview .image-view img {
+    max-width: 100px;
+    max-height: 100px;
+}
+#image-preview .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    background: rgba(255,255,255,0.5);
+}
+.dropbtn {
+  background: #303244;
+  color:white;
+  border-radius: 2px;
+  border-width: 0px;
+  width:100%;
+  padding: 5px 0px;
+  transition-duration: 0.15s;
+  margin-top:5px;
+}
+.dropbtn:hover {
+  background: #21232e;
+}
+.dropbtn:active {
+  background: #171920;
+}
+html,body {
+  overflow: hidden;
+}
+canvas {
+  cursor:crosshair;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.459);
+}
+div.upload {
+    width: 157px;
+    height: 37px;
+    background: #303244;
+  content: 'Upload';
+  color:white;
+  border-radius: 2px;
+  border-width: 0px;
+  width:92.3%;
+  padding: 5px 0px;
+  transition-duration: 0.15s;
+  margin-top:5px;
+  margin-left:6px;
+    overflow: hidden;
+}
+
+div.upload input {
+    display: block !important;
+    width: 157px !important;
+    height: 57px !important;
+    opacity: 0 !important;
+    content: 'Upload';
+    overflow: hidden !important;
+    
+}
+div.upload:hover {
+  background: #21232e;
+}
+div.upload:active {
+  background: #171920;
+}
+
+
+#loader,
+#loader:before,
+#loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+#loader {
+  color: #ffffff;
+  font-size: 10px;
+  margin: 80px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+#loader:before,
+#loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+#loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+#loader:after {
+  left: 3.5em;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
+
+</style>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up" style="font-size: large;"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/aos/aos.js"></script>
+  <script src="https://bootstrapmade.com/demo/templates/Selecao/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const pickr = Pickr.create({
+    el: '.color-picker',
+    theme: 'classic', // or 'monolith', or 'nano'
+    default:'rgba(244, 67, 54, 1)',
+
+    swatches: [
+        'rgba(244, 67, 54, 1)',
+        'rgba(233, 30, 99, 0.95)',
+        'rgba(156, 39, 176, 0.9)',
+        'rgba(103, 58, 183, 0.85)',
+        'rgba(63, 81, 181, 0.8)',
+        'rgba(33, 150, 243, 0.75)',
+        'rgba(3, 169, 244, 0.7)',
+        'rgba(0, 188, 212, 0.7)',
+        'rgba(0, 150, 136, 0.75)',
+        'rgba(76, 175, 80, 0.8)',
+        'rgba(139, 195, 74, 0.85)',
+        'rgba(205, 220, 57, 0.9)',
+        'rgba(255, 235, 59, 0.95)',
+        'rgba(255, 193, 7, 1)'
+    ],
+
+    components: {
+
+        // Main components
+        preview: false,
+        opacity: true,
+        hue: true,
+
+        // Input / output Options
+        interaction: {
+            hex: true,
+            rgba: true,
+            hsla: false,
+            hsva: false,
+            cmyk: false,
+            input: true,
+            clear: false,
+            save: false
+        }
+    }
+});
+
+
+
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
+
+</body>
+<script>
+ var colorPicker = new iro.ColorPicker("#picker", {
+  width: 250,
+  color: "rgba(244, 67, 54, 1)",
+  borderWidth: 0,
+  borderColor: "rgba(255, 0, 0, 1)",
+  layoutDirection: 'horizontal',
+  layout: [
+    {
+      component: iro.ui.Box,
+    },
+    {
+      component: iro.ui.Slider,
+      options: {
+        id: 'hue-slider',
+        sliderType: 'hue'
+      }
+    },
+    
+  ]
+});
+
+function save_color() {
+  RGBAcolor = colorPicker.color.rgbaString;
+  document.getElementById("in_col").style.color = RGBAcolor;
+}
+  
+function stop_change() {
+  colorPicker.color.rgbaString = RGBAcolor;
+  document.getElementById("outputmob").style.background = colorPicker.color.rgbaString;
+  document.getElementById("outputcol").innerHTML = colorPicker.color.rgbaString;
+}
+
+mobileCanvas = document.getElementById("mobile_canvas");
+mobCanvas = document.getElementById("mobile_canvas").getContext("2d");
+
+function fill_mob() {
+  mobCanvas.fillStyle = RGBAcolor;
+  mobCanvas.fillRect(0, 0, mobileCanvas.width, mobileCanvas.height);
+}
+
+  function showpick() {
+
+
+document.getElementById("shadow").style.display = "block";
+document.getElementById("loader").style.display = "none";
+
+  pickr.setColor("rgba(244, 67, 54, 1)");
+  function isIE() {
+  ua = navigator.userAgent;
+  
+  var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+  
+  return is_ie; 
+}
+if (window.innerWidth == 1024) {
+  
+  window.location.replace('lowscreen.html');
+} else if (isIE()){
+  window.location.replace('ie.html');
+} else if (window.innerWidth > 1366) {
+  window.location.replace('widescreen.html');
+} else if (window.innerWidth == 1024) {
+  window.location.replace('lowscreen.html');
+} else if (window.innerWidth == 1326) {
+    window.location.replace('opera.html');
+} else if (window.innerWidth == 1024) {
+  window.location.replace('lowscreen.html');
+  } else if (window.innerWidth < 1366) {
+    document.getElementById("mobile_canvas").width = window.innerWidth;
+    document.getElementById("desktop_user").style.display="none";
+    document.getElementById("shadow").style.display="none";
+    document.getElementById("mobile_user").style.display="block";
+    if (window.innerWidth >= 780 && window.innerWidth <= 1024 || window.innerWidth < 322 || window.innerHeight < 575) {
+      window.location.replace('lowscreen.html');
+    }
+    if (window.innerWidth > window.innerHeight) {
+      window.location.replace('mobile.html');
+    } else if (window.innerWidth < window.innerHeight) {
+      mobileCanvas.width = window.innerWidth;
+      mobileCanvas.height = window.innerHeight/3;
+    }
+    
+   pickr.hide()
+  } else if (window.innerWidth == 1366) {
+    document.getElementById("desktop_user").style.display="block";
+    document.getElementById("shadow").style.display="block";
+    document.getElementById("mobile_user").style.display="none";
+    
+    pickr.show();
+  }
+
+  document.getElementById("in_col").style.color = RGBAcolor;
+  colorPicker.color.rgbaString = RGBAcolor;
+  document.getElementById("outputmob").style.background = RGBAcolor;
+  document.getElementById("outputcol").innerHTML = RGBAcolor;
+}
+    pickr.on('hide', instance => {
+  if (screen.width < 1366) {
+   pickr.hide()
+  } else if (screen.width == 1366) {
+    pickr.show();
+  } 
+})
+  
+pickr.on('changestop', (color, source, instance) => {
+  document.getElementById("in_col").style.color = RGBAcolor;
+});
+
+colorPicker.on('color:change', function(color) {
+  document.getElementById("outputmob").style.background = colorPicker.color.rgbaString;
+  document.getElementById("outputcol").innerHTML = colorPicker.color.rgbaString;
+});
+
+ var $slider = $("#slider");
+ var $fill = $(".bar .fill");
+var slider_value = 1;
+function setBar() {
+  $fill.css("width", $slider.val()/2 + "%");
+  slider_value = document.getElementById("slider").value;
+  document.getElementById("h5_out").value = slider_value;
+}
+$slider.on("input", setBar);
+
+setBar();
+
+var $slider2 = $("#slider2");
+ var $full = $(".bare .full");
+var slider_value2 = 1;
+function setBare() {
+  $full.css("width", $slider2.val()/2 + "%");
+  slider_value = document.getElementById("slider").value;
+}
+$slider2.on("input", setBare);
+
+setBare();
+
+function h5change() {
+  document.getElementById("slider").value = h5_out.value;
+  setBar();
+}
+
+var mouseEvent = "empty";
+var last_position_of_x, last_position_of_y;
+
+    canvas = document.getElementById('myCanvas');
+    ctx = canvas.getContext("2d");
+    
+
+pickr.on('change', (color, source, instance) => {
+    RGBAcolor = color.toRGBA().toString(0);
+})
+
+    RGBAcolor = "rgba(244, 67, 54, 1)";
+    width_of_line = 1;
+    canvas.addEventListener("mousedown", my_mousedown);
+    function my_mousedown(e)
+    {
+
+        mouseEvent = "mouseDown";
+    }
+
+    canvas.addEventListener("mousemove", my_mousemove);
+    function my_mousemove(e)
+    {
+        current_position_of_mouse_x = e.clientX - canvas.offsetLeft;
+        current_position_of_mouse_y = e.clientY - canvas.offsetTop;
+
+        if (mouseEvent == "mouseDown") {
+
+
+          switch (event.which) {
+
+            case 1:
+        ctx.beginPath();
+        ctx.strokeStyle = RGBAcolor;
+        ctx.lineWidth = document.getElementById("slider").value;
+ctx.lineCap = "round";
+        ctx.moveTo(last_position_of_x, last_position_of_y);
+
+        ctx.lineTo(current_position_of_mouse_x, current_position_of_mouse_y);
+        ctx.stroke();
+
+
+}
+
+
+        }
+
+        last_position_of_x = current_position_of_mouse_x; 
+        last_position_of_y = current_position_of_mouse_y;
+    }
+
+    canvas.addEventListener("mouseup", my_mouseup);
+    function my_mouseup(e)
+    {
+        mouseEvent = "mouseUP";
+        unit_un.push(canvas.toDataURL());
+    }
+
+    canvas.addEventListener("mouseleave", my_mouseleave);
+    function my_mouseleave(e)
+    {
+        mouseEvent = "mouseleave";
+    }
+
+
+//Additional Activity
+function clearArea() {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    mobCanvas.clearRect(0, 0, mobileCanvas.width, mobileCanvas.height);
+    unit_un.push(canvas.toDataURL());
+}
+
+
+mobileCanvas.addEventListener("touchstart", my_touch_down);
+function my_touch_down(e) {
+
+last_X = e.touches[0].clientX - mobileCanvas.offsetLeft;
+last_Y = e.touches[0].clientY - mobileCanvas.offsetTop;
+}
+
+
+
+mobileCanvas.addEventListener("touchmove", my_touch_move);
+
+function my_touch_move(e) {
+    
+    current_X = e.touches[0].clientX - mobileCanvas.offsetLeft;
+    current_Y = e.touches[0].clientY - mobileCanvas.offsetTop;
+
+
+       mobCanvas.beginPath();
+       mobCanvas.strokeStyle = RGBAcolor;
+       mobCanvas.lineCap = "round";
+       mobCanvas.lineWidth = document.getElementById("slider2").value;
+
+       mobCanvas.moveTo(last_X, last_Y);
+       mobCanvas.lineTo(current_X, current_Y);
+       mobCanvas.stroke();
+
+        
+    
+    last_X = current_X;
+    last_Y = current_Y;
+}
+
+
+
+function splash() {
+  ctx.fillStyle = RGBAcolor;
+    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    unit_un.push(canvas.toDataURL());
+}
+
+download_img = function(el) {
+  var image = canvas.toDataURL("image/png");
+  el.href = image;
+};
+
+download_img_jpeg = function(el) {
+  var image = canvas.toDataURL("image/jpeg");
+  el.href = image;
+};
+
+download_img_bmp = function(el) {
+  var image = mobileCanvas.toDataURL("image/png");
+  el.href = image;
+};
+
+mob_download_img = function(el) {
+  var image = canvas.toDataURL("image/png");
+  el.href = image;
+};
+
+function reset() {
+  if (confirm("Are you sure? This will reset all your current settings!")) {
+  RGBAcolor = "rgb(244, 67, 54)";
+  pickr.setColor("rgb(244, 67, 54)");
+  document.getElementById("slider").value=1;
+  document.getElementById("slider2").value=1;
+  document.getElementById("in_col").style.color = RGBAcolor;
+  setBar();
+  setBare();
+  clearArea();
+  unit_un.push(canvas.toDataURL());
+  canvas.height=510;
+  canvas.width=850;
+  unit_un = [];
+  unit_re = [];
+  colorPicker.color.rgbaString = "rgba(244, 67, 54, 1)";
+  document.getElementById("outputmob").style.background = colorPicker.color.rgbaString;
+  document.getElementById("outputcol").innerHTML = colorPicker.color.rgbaString;
+  }
+
+}
+
+
+function pick() {
+  
+
+  valval = (ctx.getImageData(current_position_of_mouse_x, current_position_of_mouse_y, 1, 1).data[0]+", "+ctx.getImageData(current_position_of_mouse_x, current_position_of_mouse_y, 1, 1).data[1]+", "+ctx.getImageData(current_position_of_mouse_x, current_position_of_mouse_y, 1, 1).data[2]);
+  pickr.setColor("rgb("+valval+")");
+  
+  
+}
+const contextMenu = document.getElementById("ctxMenuRepl");
+const scope = document.querySelector("body");
+
+scope.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+
+  const { clientX: mouseX, clientY: mouseY } = event;
+
+  contextMenu.style.top = `${mouseY}px`;
+  contextMenu.style.left = `${mouseX}px`;
+
+  contextMenu.classList.add("visible");
+});
+
+let imgInput = document.getElementById('imageInput');
+  imgInput.addEventListener('change', function(e) {
+    if(e.target.files) {
+      let imageFile = e.target.files[0]; //here we get the image file
+      var reader = new FileReader();
+      reader.readAsDataURL(imageFile);
+      reader.onloadend = function (e) {
+        var myImage = new Image(); // Creates image object
+        myImage.src = e.target.result; // Assigns converted image to image object
+        myImage.onload = function(ev) {
+          var myCanvas = document.getElementById("myCanvas"); // Creates a canvas object
+          var myContext = myCanvas.getContext("2d"); // Creates a contect object
+          myCanvas.width = myImage.width; // Assigns image's width to canvas
+          myCanvas.height = myImage.height; // Assigns image's height to canvas
+          
+          let imgData = myCanvas.toDataURL("image/jpeg",0.75); // Assigns image base64 string in jpeg format to a variable
+          if (canvas.width > 850 || canvas.height > 510) {
+            alert("Sorry, the image you uploaded is too large");
+            canvas.width = 850;
+            canvas.height = 510;
+          } else if (canvas.width <= 850){
+            myContext.drawImage(myImage,0,0); // Draws the image on canvas
+            unit_un.push(canvas.toDataURL());
+          }
+
+        }
+      }
+    }
+  });
+
+
+
+
+
+  document.addEventListener('keydown', function(event) {
+  if (event.ctrlKey && event.key === 'z') {
+
+    
+    ctx.clearRect(0, 0, ctx.canvas.width,ctx.canvas.height);
+  
+  var img = new Image;
+  img.onload = function(){
+  ctx.drawImage(img,0,0); // Or at whatever offset you like
+};
+img.src = unit_un[unit_un.length -1];
+unit_re.push(unit_un[unit_un.length -1]);
+  unit_un.pop();
+
+
+  }
+});
+document.addEventListener('keydown', function(event) {
+  if (event.ctrlKey && event.key === 'y') {
+    if (unit_re.length) {
+    ctx.clearRect(0, 0, ctx.canvas.width,ctx.canvas.height);
+  
+  var img2 = new Image;
+  img2.onload = function(){
+  ctx.drawImage(img2,0,0); // Or at whatever offset you like
+};
+img2.src = unit_re[unit_re.length -2];
+  unit_un.push(unit_re[unit_re.length -1]);
+  unit_re.pop();
+
+}
+  }
+});
+
+var unit_un = [];
+var unit_re = [];
+unit_un.push(canvas.toDataURL());
+
+
+
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'f') {
+    splash();
+  }
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'c') {
+    clearArea();
+  }
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'r') {
+    reset();
+  }
+});
+
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'n') {
+    window.open('editor.html', '_blank');
+  }
+});
+
+
+</script>
+</html>
